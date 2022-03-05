@@ -15,8 +15,6 @@ export const Home = () => {
           <Search />
         </div>
       </div>
-      {/* <main className="col-6" style={{ background: "blue", height: "100vh" }}></main> */}
-      {/* <aside className="col-3" style={{ background: "yellow", height: "100vh" }}></aside> */}
     </div>
   );
 };
