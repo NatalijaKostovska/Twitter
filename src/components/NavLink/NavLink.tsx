@@ -1,29 +1,43 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { ReactElement, ReactNode } from 'react';
+import styled from 'styled-components';
 
-export const NavLink = () => {
+type IconType = (props: IconType) => JSX.Element;
+
+interface INavLink {
+  icon?: ReactNode;
+  name?: string
+}
+
+export const NavLink = ({ icon, name }: INavLink) => {
+
   return (
-    <div>
-      <Style.IconWrapper></Style.IconWrapper>
-      <Style.TextWrapper></Style.TextWrapper>
-    </div>
+    <Style.Container>
+      <Style.IconWrapper>{icon}</Style.IconWrapper>
+      <Style.TextWrapper>{name}</Style.TextWrapper>
+    </Style.Container>
   )
 }
 const Style = {
   Container: styled.nav`
-  background: cyan;
-  height: 100vh;
+  display: flex;
 `,
   IconWrapper: styled.div`
   display: flex;
-  border: 1px solid white;
   height: 50px;
   flex: 1;
+  color: white;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
   `,
   TextWrapper: styled.div`
   display: flex;
-  border: 1px solid yellow;
   height: 50px;
   flex: 5;
+  font-size: 18px;
+  color: white;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 14px;
   `
 }
