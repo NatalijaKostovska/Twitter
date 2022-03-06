@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div className="row">
       <div className="container"
-        style={{ background: 'blue', height: '100vh' }}
+        style={{ height: '100vh' }}
       >
         <div className="row">
           <Navbar />

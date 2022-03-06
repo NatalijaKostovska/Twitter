@@ -29,6 +29,7 @@ const Style = {
   background: #383b40;
   height: 100vh;
   border-right: 1px solid white;
+  padding: 20px;
 `,
   IconWrapper: styled.div`
   display: flex;
