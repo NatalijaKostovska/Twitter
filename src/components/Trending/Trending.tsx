@@ -7,8 +7,8 @@ interface Props {
   tweets?: string;
 }
 
-const Trending = (props: Props) => {
-  const { category, word, tweets } = props;
+const Trending = ({ category, word, tweets }: Props) => {
+
   return (
     <Style.Container>
       <Style.Tranding>{category} Trending</Style.Tranding>
