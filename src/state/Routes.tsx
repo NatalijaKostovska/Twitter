@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes as RRDRoutes} from 'react-router-dom';
-import {Main} from '../containers/Home/components/Main';
+import {Main} from '../containers/Home/components/Main/Main';
 
 const Routes = () => {
   return (

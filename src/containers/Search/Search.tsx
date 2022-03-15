@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Trending from '../../../components/Trending/Trending';
+import Trending from '../../components/Trending/Trending';
 
 export const Search = () => {
   return (
@@ -19,9 +19,9 @@ const Style = {
   Aside: styled.aside`
     background: rgb(21, 24, 28);
     height: 500px;
-    borderLeft: 1px solid white;
-    borderRadius: 16px';
-    borderColor: 1px solid rgb(21, 24, 28);
+    border-left: 1px solid white;
+    border-radius: 16px;
+    border-color: 1px solid rgb(21, 24, 28);
     padding: 20px;
   `,
 };

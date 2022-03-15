@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../../../components/Button/Button';
-import {NavLink} from '../../../components/NavLink/NavLink';
+import Button from '../../components/Button/Button';
+import {NavLink} from '../../components/NavLink/NavLink';
 import {RiHome7Fill, RiFileListLine} from 'react-icons/ri';
 import {BiHash} from 'react-icons/bi';
 import {VscBell} from 'react-icons/vsc';
