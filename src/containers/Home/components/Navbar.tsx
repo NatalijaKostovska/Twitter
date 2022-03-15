@@ -11,14 +11,18 @@ import {HiOutlineDotsCircleHorizontal} from 'react-icons/hi';
 export const Navbar = () => {
   return (
     <Style.Container className="col-3">
-      <NavLink name="Home" icon={<RiHome7Fill />} />
-      <NavLink name="Explore" icon={<BiHash />} />
-      <NavLink name="Notifications" icon={<VscBell />} />
-      <NavLink name="Messages" icon={<FiMail />} />
-      <NavLink name="Bookmarks" icon={<FiBookmark />} />
-      <NavLink name="Lists" icon={<RiFileListLine />} />
-      <NavLink name="Profile" icon={<BsPerson />} />
-      <NavLink name="More" icon={<HiOutlineDotsCircleHorizontal />} />
+      <NavLink to="/" name="Home" icon={<RiHome7Fill />} />
+      <NavLink to="/explore" name="Explore" icon={<BiHash />} />
+      <NavLink to="/notifications" name="Notifications" icon={<VscBell />} />
+      <NavLink to="/messages" name="Messages" icon={<FiMail />} />
+      <NavLink to="/bookmarks" name="Bookmarks" icon={<FiBookmark />} />
+      <NavLink to="/lists" name="Lists" icon={<RiFileListLine />} />
+      <NavLink to="/profile" name="Profile" icon={<BsPerson />} />
+      <NavLink
+        to="/more"
+        name="More"
+        icon={<HiOutlineDotsCircleHorizontal />}
+      />
       <Button name="Tweet" background="rgb(29, 155, 240)" />
     </Style.Container>
   );
