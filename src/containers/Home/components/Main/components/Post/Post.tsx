@@ -1,13 +1,19 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 import {Action} from './components/Action';
+import type {Post as PostType} from '../../types';
 
 interface Props {
   title: string;
-  content: string;
+  body: string;
+  id: number;
+  userId: number;
 }
 
-export const Post = ({title, content}: Props) => {
+export const Post = ({id, userId, body, title}: Props) => {
+  const navigate = useNavigate();
+
   return (
     <Styled.Container>
       <Styled.AdditionalInfo>
@@ -19,7 +25,7 @@ export const Post = ({title, content}: Props) => {
         </Styled.IconWrapper>
         <Styled.MainContent>
           <Styled.Title>{title}</Styled.Title>
-          <Styled.Content>{content}</Styled.Content>
+          <Styled.Content>{body}</Styled.Content>
           <Styled.Actions>
             <Action actionNumber={444} />
             <Action actionNumber={151} />
@@ -28,6 +34,20 @@ export const Post = ({title, content}: Props) => {
           </Styled.Actions>
         </Styled.MainContent>
       </Styled.Wrapper>
+      <button
+        onClick={() => {
+          navigate(`/posts/${id}`, {
+            state: {
+              title,
+              body,
+              id,
+              userId,
+            },
+          });
+        }}
+      >
+        Navigate to somewhere
+      </button>
     </Styled.Container>
   );
 };

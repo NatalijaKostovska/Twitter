@@ -21,9 +21,7 @@ const Styled = {
     flex-direction: row;
     color: white;
   `,
-  Icon: styled.div`
-    display: block;
-  `,
+  Icon: styled.div``,
   Number: styled.div`
     margin-left: 10px;
   `,
