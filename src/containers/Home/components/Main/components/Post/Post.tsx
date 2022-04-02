@@ -15,7 +15,11 @@ export const Post = ({id, userId, body, title}: Props) => {
   const navigate = useNavigate();
 
   return (
-    <Styled.Container>
+    <Styled.Container
+      onClick={() => {
+        navigate(`/posts/${id}/comments`);
+      }}
+    >
       <Styled.AdditionalInfo>
         Bitcoin cryptocurrency - See more
       </Styled.AdditionalInfo>
@@ -35,7 +39,8 @@ export const Post = ({id, userId, body, title}: Props) => {
         </Styled.MainContent>
       </Styled.Wrapper>
       <button
-        onClick={() => {
+        onClick={event => {
+          event.preventDefault();
           navigate(`/posts/${id}`, {
             state: {
               title,
