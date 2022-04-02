@@ -1,14 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from 'react-router-dom';
+import React, {Key, useEffect, useState} from 'react';
+import {Path, useLocation, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import {Action} from '../Home/components/Main/components/Post/components/Action';
 import type {Post as PostType} from '../Home/components/Main/types';
 
-const PostPage = (props: any) => {
+interface ILocation {
+  title: string;
+  id: string;
+}
+
+const PostPage = () => {
   const location = useLocation();
   const params = useParams();
-  const locationState = location.state as any;
-  const [data, setData] = useState<PostType>();
+  const locationState = location.state as ILocation;
+  const [data, setData] = useState<PostType>({
+    userId: 0,
+    id: 0,
+    title: '',
+    body: '',
+  });
 
   useEffect(() => {
     const fetchFromApi = async () => {

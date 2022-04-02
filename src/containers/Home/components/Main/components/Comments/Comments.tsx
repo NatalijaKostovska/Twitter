@@ -12,7 +12,7 @@ interface IComments {
   body: string;
 }
 
-const Comments = (props: any) => {
+const Comments = () => {
   const params = useParams();
   const [data, setData] = useState<IComments[]>([]);
 
@@ -30,7 +30,7 @@ const Comments = (props: any) => {
 
   return (
     <div style={{width: '500px'}}>
-      {/* <PostPage /> */}
+      <PostPage />
       {data?.map(comment => {
         return (
           <Styled.Wrapper key={comment.id}>
@@ -38,9 +38,8 @@ const Comments = (props: any) => {
               <Styled.Icon></Styled.Icon>
             </Styled.IconWrapper>
             <Styled.MainContent>
-              {comment.email}
-              <br />
-              {comment.body}
+              <Styled.Email>{comment.email}</Styled.Email>
+              <Styled.Body>{comment.body}</Styled.Body>
               <Styled.Actions>
                 <Action actionNumber={444} />
                 <Action actionNumber={151} />
@@ -109,5 +108,11 @@ const Styled = {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  `,
+  Email: styled.div`
+    margin-bottom: 10px;
+  `,
+  Body: styled.div`
+    background-color: white;
   `,
 };
