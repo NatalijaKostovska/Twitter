@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  name?: string;
+  name: string;
   textColor?: string;
   background?: string;
   onClick?: () => void;
 }
 
-const Button = ({ name, onClick, background, textColor = 'gray' }: Props) => {
+const Button = ({name, onClick, background, textColor = 'gray'}: Props) => {
   return (
-    <Style.Container onClick={onClick} style={{ backgroundColor: background }}>
+    <Style.Container onClick={onClick} style={{backgroundColor: background}}>
       {name}
     </Style.Container>
   );
