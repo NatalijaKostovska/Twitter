@@ -15,7 +15,7 @@ export const AddTweet = () => {
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      tweet: 'nekoja inicijalna vrednost',
+      tweet: 'Hello! This is my first tweet.',
     },
   });
 
@@ -65,7 +65,7 @@ export const AddTweet = () => {
       <Styled.Avatar src="https://i.pravatar.cc/100" />
       <Styled.Form onSubmit={handleSubmit(onSubmit)}>
         <Styled.TextArea
-          {...register('tweet', {required: 'U must enter a tweet'})}
+          {...register('tweet', {required: 'This field cannot be empty.'})}
           placeholder="What's happening?"
           maxLength={140}
         ></Styled.TextArea>
