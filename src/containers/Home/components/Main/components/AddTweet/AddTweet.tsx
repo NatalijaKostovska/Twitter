@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useForm} from 'react-hook-form';
 import styled from 'styled-components';
 import Button from '../../../../../../components/Button/Button';
 
@@ -6,6 +7,17 @@ export const AddTweet = () => {
   const [tweet, setTweet] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: {errors},
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      tweet: 'nekoja inicijalna vrednost',
+    },
+  });
 
   const onTweetChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = event.target.value;
@@ -43,22 +55,27 @@ export const AddTweet = () => {
     return <div>Loading ..</div>;
   }
 
+  //test
+  const onSubmit = (data: any) => {
+    console.log('data', data);
+  };
+
   return (
     <Styled.Container>
       <Styled.Avatar src="https://i.pravatar.cc/100" />
-      <Styled.Form>
+      <Styled.Form onSubmit={handleSubmit(onSubmit)}>
         <Styled.TextArea
-          onChange={onTweetChange}
+          {...register('tweet', {required: 'U must enter a tweet'})}
           placeholder="What's happening?"
           maxLength={140}
         ></Styled.TextArea>
         <Styled.ActionsWrapper>
           <div></div>
           <Button
+            type="submit"
             background="rgb(29,155,240)"
             name="Tweet"
             textColor="white"
-            onClick={postTweet}
           />
         </Styled.ActionsWrapper>
       </Styled.Form>
