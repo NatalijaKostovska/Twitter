@@ -2,17 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  name?: string;
+  name: string;
   textColor?: string;
   background?: string;
   onClick?: () => void;
+  type?: React.HTMLProps<HTMLButtonElement>['type'];
 }
 
-const Button = ({ name, onClick, background, textColor = 'gray' }: Props) => {
+const Button = ({
+  name,
+  onClick,
+  background,
+  textColor = 'gray',
+  type,
+  ...rest
+}: Props) => {
   return (
-    <Style.Container onClick={onClick} style={{ backgroundColor: background }}>
+    <button {...rest} onClick={onClick} style={{backgroundColor: background}}>
       {name}
-    </Style.Container>
+    </button>
   );
 };
 
