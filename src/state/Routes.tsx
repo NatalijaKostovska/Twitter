@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes as RRDRoutes} from 'react-router-dom';
 import Comments from '../containers/Home/components/Main/components/Comments/Comments';
-import {Main} from '../containers/Home/components/Main/Main';
+import {Main} from '../containers/Home/components/Main/components/Post/Main';
 import PostPage from '../containers/PostPage/PostPage';
 
 const Routes = () => {
