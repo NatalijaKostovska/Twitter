@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export const useFetch = <T>(url: string) => {
   const [data, setData] = useState<T>();
@@ -15,4 +15,4 @@ export const useFetch = <T>(url: string) => {
 
   return data;
 };
-export const customFetch = () => {};
+export const customFetch = () => { };
