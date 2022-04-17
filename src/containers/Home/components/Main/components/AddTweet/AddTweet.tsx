@@ -2,11 +2,18 @@ import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import styled from 'styled-components';
 import Button from '../../../../../../components/Button/Button';
+import {usePostTweet} from '../../../../../../hooks/usePostTweets';
+import {Post} from '../../types';
 
-export const AddTweet = () => {
+interface Props {
+  addNewTweet: (post: Post) => void;
+}
+
+export const AddTweet = ({addNewTweet}: Props) => {
+  const {error, loading, postTweet, someRef} = usePostTweet(addNewTweet);
+
   const [tweet, setTweet] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -24,33 +31,10 @@ export const AddTweet = () => {
     setTweet(text);
   };
 
-  const postTweet = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            title: 'foo',
-            userId: 1,
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        }
-      );
-    } catch (error: any) {
-      setError(error);
-    } finally {
-      setLoading(false);
-      setTweet('');
-    }
-  };
-
   if (error) {
     return <p>{error}</p>;
   }
+
   if (loading) {
     return <div>Loading ..</div>;
   }
@@ -65,7 +49,9 @@ export const AddTweet = () => {
       <Styled.Avatar src="https://i.pravatar.cc/100" />
       <Styled.Form onSubmit={handleSubmit(onSubmit)}>
         <Styled.TextArea
-          {...register('tweet', {required: 'This field cannot be empty.'})}
+          ref={someRef}
+          // onChange={e => setTweet(e.target.value)}
+          // {...register('tweet', {required: 'This field cannot be empty.'})}
           placeholder="What's happening?"
           maxLength={140}
         ></Styled.TextArea>
@@ -76,6 +62,7 @@ export const AddTweet = () => {
             background="rgb(29,155,240)"
             name="Tweet"
             textColor="white"
+            onClick={postTweet}
           />
         </Styled.ActionsWrapper>
       </Styled.Form>
