@@ -7,11 +7,13 @@ interface IState {
   loading: boolean;
   error: boolean;
 }
+
 const INITIAL_STATE: IState = {
   tweet: '',
   loading: false,
   error: false
 }
+
 type Action = |
 {
   type: 'POST_TWEET_SUCCESS';
@@ -82,8 +84,7 @@ const reducer = (state: IState, action: Action) => {
     }
   }
 }
-//vraka state i funckija dispatch
-//prima reducer (funkcija so vraka objekt) i akcija
+
 export const usePostTweet = (fn: (post: PostType) => void) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const someRef = useRef<HTMLTextAreaElement>(null);
