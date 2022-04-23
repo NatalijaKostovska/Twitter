@@ -8,6 +8,5 @@ interface Props {
 
 export const ProtectedRoute = ({children}: Props) => {
   const {user} = useContext(AuthContex);
-  console.log('user', user);
   return user ? children : <Navigate to="/login" replace />;
 };

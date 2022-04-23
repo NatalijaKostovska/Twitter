@@ -16,6 +16,5 @@ export const AuthContex = React.createContext<ContextValues>({
 export const AuthContextConstructor = ({children}: {children: JSX.Element}) => {
   const [user, setUser] = useState<User>();
   // {username: 'Jane', password: '12345'}
-  console.log('user', user);
   return <AuthContex.Provider value={{user}}>{children}</AuthContex.Provider>;
 };
