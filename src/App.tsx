@@ -8,9 +8,7 @@ function App() {
   return (
     <div className="container-fluid" style={{background: '#383b40'}}>
       <div className="row">
-        <Navbar />
         <Routes />
-        <Search />
       </div>
     </div>
   );
