@@ -138,8 +138,6 @@ export const usePostTweet = (fn: (post: PostType) => void) => {
     }
   };
 
-  console.log('state.error', state.error)
-
   return {
     postTweet, loading: state.loading, error: state.error,
     tweet: state.tweet,
