@@ -8,6 +8,7 @@ import {VscBell} from 'react-icons/vsc';
 import {FiMail, FiBookmark} from 'react-icons/fi';
 import {BsPerson} from 'react-icons/bs';
 import {HiOutlineDotsCircleHorizontal} from 'react-icons/hi';
+
 export const Navbar = () => {
   return (
     <Style.Container className="col-3">
